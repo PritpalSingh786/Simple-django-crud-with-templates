@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Todo App</h1>
+    <a href="{% url 'addTodo' %}">Add Todo</a>
+
+    <ul>
+        {% for todo in todos %}
+        <li>
+            <p>{{todo.title}}  {{todo.description}}</p>
+            <a href="{% url 'updateTodo' todo.id %}">Update</a>
+            <a href="{% url 'deleteTodo' todo.id %}" onclick="return confirm('Delete this item?')">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
